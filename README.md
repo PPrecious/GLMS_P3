@@ -1,15 +1,12 @@
 # GLMS_P3
 
-ASP.NET Core distributed enterprise logistics system for managing clients, contracts, and service requests. 
-The solution has been refactored from a monolithic MVC architecture into a Service-Oriented Architecture (SOA) using a dedicated ASP.NET Core Web API as the core backend service. 
-The system supports secure JWT authentication, centralized business logic in the API layer, and decoupled presentation via an MVC frontend consuming API endpoints through HttpClient.
+ASP.NET Core distributed enterprise logistics system for managing clients, contracts and service requests. 
+The solution has been refactored from a monolithic MVC architecture to a Service-Oriented Architecture (SOA) with dedicated ASP.NET Core Web API as core backend service. 
+Secure JWT authentication is provided with centralized business logic in the API layer. Decoupled presentation is enabled by an MVC frontend that consumes API endpoints using HttpClient.
 
-It includes file uploads (PDF-only) with server-side validation and secure download handling, real-time currency conversion (USD to ZAR via external API integration), 
-and automated business rule enforcement such as contract status workflows and service request validation.
+The architecture is based on Clean Architecture principles with separation of concerns in API, MVC client, and data layers making the application scalable and maintainable.
+The system is fully containerized, utilizing Docker Compose, with SQL Server, the GLMS Web API and the MVC frontend operating as separate services communicating over internal networking.
 
-The architecture follows Clean Architecture principles with separation of concerns across API, MVC client, and data layers, enabling scalability and maintainability.
-The system is fully containerized using Docker Compose, orchestrating SQL Server, the GLMS Web API, and the MVC frontend as independent services communicating through internal networking.
+Extensive automated unit and integration testing is performed using xUnit to ensure the reliability of critical business logic including currency calculations, authentication flow and API endpoint validation.
 
-Comprehensive automated unit and integration testing using xUnit ensures reliability of critical business logic, including currency calculations, authentication flow, and API endpoint validation.
-
-The solution is designed for cloud-ready deployment, horizontal scalability, and enterprise-level extensibility, aligning with modern DevOps and CI/CD practices.
+It is designed for cloud ready deployment, horizontal scalability and enterprise level extensibility and adheres to modern DevOps and CI/CD practices.
