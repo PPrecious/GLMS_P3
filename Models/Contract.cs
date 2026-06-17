@@ -1,6 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using GLMS.Web.Models;
+using System.ComponentModel.DataAnnotations;
 
-namespace GLMS.Web.Models
+namespace GLMS.API.Models
 {
     public class Contract
     {
@@ -9,7 +10,6 @@ namespace GLMS.Web.Models
         [Required]
         public int ClientId { get; set; }
 
-        // navigation property
         public Client? Client { get; set; }
 
         [Required]
@@ -19,14 +19,13 @@ namespace GLMS.Web.Models
         public DateTime EndDate { get; set; }
 
         [Required]
-        public string Status { get; set; } = string.Empty;
+        public string Status { get; set; }
 
         [Required]
-        public string ServiceLevel { get; set; } = string.Empty;
+        public string ServiceLevel { get; set; }
 
-        public string SignedAgreementPath { get; set; } = string.Empty;
+        public string? SignedAgreementPath { get; set; }
 
-        public ICollection<ServiceRequest> ServiceRequests { get; set; }
-            = new List<ServiceRequest>();
+        public ICollection<ServiceRequest>? ServiceRequests { get; set; }
     }
 }

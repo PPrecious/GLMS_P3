@@ -1,4 +1,4 @@
-﻿namespace GLMS.Web.Models
+﻿namespace GLMS.API.Models
 {
     public class LoginViewModel
     {

@@ -61,46 +61,6 @@ namespace GLMS.Web.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public async Task<IActionResult> Details(int id)
-        {
-            var client = _api.CreateClient();
-
-            var contract =
-                await client.GetFromJsonAsync<Contract>(
-                    $"api/contracts/{id}");
-
-            if (contract == null)
-                return NotFound();
-
-            return View(contract);
-        }
-
-        public async Task<IActionResult> Delete(int id)
-        {
-            var client = _api.CreateClient();
-
-            var contract =
-                await client.GetFromJsonAsync<Contract>(
-                    $"api/contracts/{id}");
-
-            if (contract == null)
-                return NotFound();
-
-            return View(contract);
-        }
-
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var client = _api.CreateClient();
-
-            await client.DeleteAsync(
-                $"api/contracts/{id}");
-
-            return RedirectToAction(nameof(Index));
-        }
-
         public async Task<IActionResult> UpdateStatus(
             int id,
             string status)
